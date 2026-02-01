@@ -1,11 +1,14 @@
 #coding = UTF-8
-#202602 DE  Gemini AI小光寫的 streamlit速寫小工具 上傳圖片計時import streamlit as st
+#202602 DE  Gemini AI小光寫的 streamlit速寫小工具 上傳圖片計時
+import streamlit as st
 import time
 from PIL import Image
 
 # 設定網頁標題與寬度組態
 st.set_page_config(page_title="速寫練習工具", layout="wide")
-'''
+
+# --- CSS 魔法區：強制圖片不超出視窗高度 ---
+# 這段 CSS 會限制圖片最大高度為視窗的 70% (70vh)，預留空間給按鈕，確保不用捲動
 st.markdown("""
 <style>
     div[data-testid="stImage"] img {
@@ -19,9 +22,10 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-'''
+
+
 def main():
-    st.title("🎨 速寫練習工具")
+    st.title("🎨 線上速寫練習工具 v3.0")
 
     # --- 初始化 Session State ---
     if 'current_index' not in st.session_state:
@@ -127,7 +131,8 @@ def main():
                 st.rerun()
 
         with col2:
-            if st.button("下一張 ➡️", disabled=(st.session_state.current_index == len(uploaded_files)-1), use_container_width=True):
+            if st.button("下一張 ➡️", disabled=(st.session_state.current_index == len(uploaded_files) - 1),
+                         use_container_width=True):
                 if st.session_state.is_running:
                     save_current_duration(current_filename)
                 st.session_state.current_index += 1
@@ -150,6 +155,7 @@ def main():
         st.info("👈 請從左側選單上傳圖片！")
         st.write("💡 小提示：可以一次選取整個資料夾的所有圖片喔。")
 
+
 def save_current_duration(filename):
     """累加時間到紀錄中"""
     if st.session_state.start_time:
@@ -159,7 +165,6 @@ def save_current_duration(filename):
         else:
             st.session_state.time_records[filename] = elapsed
 
+
 if __name__ == "__main__":
-
     main()
-
