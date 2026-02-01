@@ -25,7 +25,7 @@ st.markdown("""
 
 
 def main():
-    st.title("🎨 線上速寫練習工具 v3.0")
+    st.title("🎨 速寫練習工具")
 
     # --- 初始化 Session State ---
     if 'current_index' not in st.session_state:
