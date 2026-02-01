@@ -6,8 +6,6 @@ from PIL import Image
 # 設定網頁標題與寬度組態
 st.set_page_config(page_title="速寫練習工具", layout="wide")
 
-# --- CSS 魔法區：強制圖片不超出視窗高度 ---
-# 這段 CSS 會限制圖片最大高度為視窗的 70% (70vh)，預留空間給按鈕，確保不用捲動
 st.markdown("""
 <style>
     div[data-testid="stImage"] img {
@@ -162,4 +160,5 @@ def save_current_duration(filename):
             st.session_state.time_records[filename] = elapsed
 
 if __name__ == "__main__":
+
     main()
