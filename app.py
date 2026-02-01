@@ -13,7 +13,7 @@ st.markdown("""
 <style>
     div[data-testid="stImage"] img {
         height: auto;
-        max-height: 70vh; 
+        max-height: 80vh; 
         width: auto;
         max-width: 100%;
         object-fit: contain; 
@@ -220,7 +220,7 @@ def show_realtime_timer(current_filename):
     # 顯示 UI (使用 Columns 排版)
     t1, t2, t3 = st.columns([1, 1, 3])
     with t1:
-        st.metric(label="⏱️ 本張耗時 (讀秒中)", value=display_current)
+        st.metric(label="⏱️ 本張耗時", value=display_current)
     with t2:
         st.metric(label="⏳ 總練習時間", value=display_total)
 
