@@ -5,7 +5,7 @@ from PIL import Image
 
 # 設定網頁標題與寬度組態
 st.set_page_config(page_title="速寫練習工具", layout="wide")
-
+'''
 st.markdown("""
 <style>
     div[data-testid="stImage"] img {
@@ -19,7 +19,7 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
-
+'''
 def main():
     st.title("🎨 速寫練習工具")
 
@@ -162,3 +162,4 @@ def save_current_duration(filename):
 if __name__ == "__main__":
 
     main()
+
